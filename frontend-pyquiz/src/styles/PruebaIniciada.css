@@ -1,0 +1,53 @@
+.containerBasica {
+    display: flex;
+    justify-content: space-around; /* Cambia space-between por space-around */
+    width: 100%;
+    padding-top: 100px;
+}
+
+.input-box1 input{
+    display: flex;
+    margin: auto;
+    margin-top: 100px;
+    width: 30%;
+    height: 50px;
+    background: #f9f4f4;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 0 45px 0 5px;
+    color: #0e0e0e;
+    transition: .3s;
+}
+input:focus ~ label,
+input:valid ~ label{
+    top: -5px;
+}
+.input-box1 label{
+    position: absolute;
+    color: #050505;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-75%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .3s;
+}
+button{
+    height: 40px;
+    width: 90px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: #08efae;
+    display: block;
+    margin: 20px auto 0;
+}
+button:focus{
+    color: #050505;
+    background-color: #0c1022;
+    border: 2px solid #050505;
+}
