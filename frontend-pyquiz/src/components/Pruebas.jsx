@@ -8,7 +8,7 @@ const Pruebas = () =>{
 			<div class="info">
 				<h1>Básico</h1>
 				<p>Lorem ipsum is simply dummy text from the printing and typing industry</p>
-				<a href="/pruebaIniciada" class="btn">Iniciar</a>
+				<a href="/pruebaBasica" class="btn">Iniciar</a>
 			</div>
 		</div>
 		<div class="card">
@@ -16,7 +16,7 @@ const Pruebas = () =>{
 			<div class="info">
 				<h1>Intermedio</h1>
 				<p>Lorem ipsum is simply dummy text from the printing and typing industry</p>
-				<a href="/pruebaIniciada" class="btn">Iniciar</a>
+				<a href="/pruebaIntermedia" class="btn">Iniciar</a>
 			</div>
 		</div>
 		<div class="card">
@@ -24,7 +24,7 @@ const Pruebas = () =>{
 			<div class="info">
 				<h1>Avanzado</h1>
 				<p>Lorem ipsum is simply dummy text from the printing and typing industry</p>
-				<a href="/pruebaIniciada" class="btn">Iniciar</a>
+				<a href="/pruebaAvanzada" class="btn">Iniciar</a>
 			</div>
 		</div>
 	</div>

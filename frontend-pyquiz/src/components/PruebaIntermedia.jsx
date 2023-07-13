@@ -1,6 +1,7 @@
 import "../styles/PruebaIniciada.css";
 
-const PruebaIniciada = () =>{
+const PruebaIntermedia = () =>{
+    
     return <div className="hero">
                 <div className="containerBasica">
                     <img src="https://i.postimg.cc/1zg6M3cq/imagen-2023-07-12-195035530.png" alt=""/>
@@ -13,4 +14,4 @@ const PruebaIniciada = () =>{
     </div>;
    }
    
-export default PruebaIniciada;
+export default PruebaIntermedia;
