@@ -10,7 +10,7 @@ const Agregar = () =>{
     const [nivel, setNivel] = React.useState("");
     
     const agregarPregunta = async () =>{
-        await axios.post('http://localhost:8080/repositorio/listado', {
+        await axios.post('http://localhost:8080/repositorio/crearPregunta', {
             titulo, url, respuesta, nivel
         })
         window.location.reload();
