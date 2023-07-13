@@ -32,30 +32,4 @@ public class RepositorioService{
     public List<Repositorio> obtenerPorNivel(String nivel) {
         return repositorioRepository.findByNivel(nivel);
     }
-
-    /*
-    public List<Proveedor> listadoProveedores() {
-        return proveedorRepository.findAll();
-    }
-
-    public Proveedor crearProveedor(Proveedor proveedor) {
-        return proveedorRepository.save(proveedor);
-    }
-
-    public Proveedor actualizarProveedor(Proveedor proveedor){
-        return proveedorRepository.save(proveedor);
-    }
-
-    public void eliminarProveedor(Proveedor proveedor){
-        proveedorRepository.delete(proveedor);
-    }
-
-    public boolean findByCodigo(String codigo) {
-        Proveedor proveedor = proveedorRepository.findByCodigo(codigo);
-        return proveedor != null;
-    }
-
-    public Proveedor obtenerPorCodigo(String codigo) {
-        return proveedorRepository.findByCodigo(codigo);
-    }*/
 }

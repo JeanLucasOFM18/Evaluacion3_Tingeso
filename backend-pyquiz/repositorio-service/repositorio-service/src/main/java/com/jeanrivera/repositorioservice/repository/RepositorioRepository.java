@@ -13,8 +13,4 @@ public interface RepositorioRepository extends JpaRepository<Repositorio, Intege
 
     @Query(value = "SELECT p FROM Repositorio p WHERE p.nivel = :filtro")
     List<Repositorio> findByNivel(@Param("filtro") String filtro);
-
-    /*
-    @Query(value = "SELECT p FROM Proveedor p WHERE p.codigo = :filtro")
-    Proveedor findByCodigo(@Param("filtro") String filtro);*/
 }
