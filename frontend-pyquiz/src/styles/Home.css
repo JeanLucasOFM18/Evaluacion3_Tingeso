@@ -9,6 +9,9 @@
     height: 88.5vh;
     background: #0eb4ff;
     background-image: url('../assets/img/fondo2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .detel h1{
     font-size: 50px;
