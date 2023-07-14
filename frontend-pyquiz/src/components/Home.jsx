@@ -1,5 +1,4 @@
 import "../styles/Home.css";
-import headerImg from "../assets/img/header-img.svg";
 
 const Home = () =>{
     return <div className="hero">
@@ -8,7 +7,7 @@ const Home = () =>{
             <h3>Pon a prueba tus conocimientos sobre Python!</h3>
         </div>
         <div className="banner">
-            <img src={headerImg} alt="Header Img"/>
+            <img src="https://i.postimg.cc/Jh2KHprf/imagen-2023-07-14-011337490-removebg-preview.png" alt="Header Img"/>
         </div>
         
     </div>;

@@ -53,12 +53,12 @@ span{
 }
 
 .banner img {
-  animation: updown 3s linear infinite;
-  width: 45%;
-  height: 80%;
-  position: absolute;
-  bottom: 50px;
-  right: 100px;
+    animation: updown 3s linear infinite;
+    width: auto;
+    height: 100%;
+    position: absolute;
+    bottom: 50px;
+    right: 100px;
 }
 @keyframes updown {
     0% {
