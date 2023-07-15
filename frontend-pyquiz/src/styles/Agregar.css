@@ -104,11 +104,7 @@ button{
     display: block;
     margin: 20px auto 0;
 }
-button:focus{
-    color: #0000FF;
-    background-color: #0000FF;
-    border: 2px solid #0000FF;
-}
+
 .form label{
     margin: 20px auto 0;
     width: 100%;

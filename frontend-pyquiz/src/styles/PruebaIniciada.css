@@ -46,12 +46,6 @@ button{
     display: block;
     margin: 20px auto 0;
 }
-button:focus{
-    color: #050505;
-    background-color: #0c1022;
-    border: 2px solid #050505;
-}
-
 
 
 
@@ -99,3 +93,217 @@ button:focus{
       transform: scale(1);
     }
   }
+
+  .progress-bar {
+    position: fixed;
+    top: 20%;
+    right: 200px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+}
+
+
+
+
+
+.card-container {
+  align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  margin-top: -100px;
+}
+
+.card-container-left {
+  background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+  border-radius: 1.12rem 1.2rem 1.12rem 1.12rem;
+  height: 25.3rem;
+  padding-top: 30px;
+  text-align: center;
+  width: 25%;
+}
+
+.card-container-left h3 {
+  color: #fbfbfb;
+}
+
+.card-container-left-circle {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 18px;
+}
+
+.circle-div {
+  align-items: center;
+  background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 8.75rem;
+  justify-content: center;
+  width: 8.75rem;
+}
+
+.circle-div h1 {
+  color: #fbfbfb;
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.circle-div p {
+  color: #fbfbfb;
+}
+
+.card-container-left-text h2 {
+  color: #fbfbfb;
+}
+
+.card-text {
+  color: #fbfbfb;
+  margin: 25px auto;
+  width: 80%;
+}
+
+.card-container-right {
+  padding: 28px;
+}
+
+.card-container-right h2 {
+  margin-bottom: 25px;
+}
+
+.group {
+  align-items: center;
+  border-radius: 10px;
+  display: flex;
+  height: 3.4rem;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+.group-icon {
+  display: flex;
+  padding-right: 50px;
+}
+
+.group-icon img {
+  margin-right: 15px;
+}
+
+.span-b {
+  color: black;
+  font-weight: 700;
+}
+
+b {
+  color: black;
+}
+
+.reaction {
+  background: #FF0000;
+}
+
+.reaction-icon {
+  color: black;
+}
+
+.memory {
+  background-color: #FFFF00;
+}
+
+.memory-icon {
+  color: black;
+}
+
+.verbal {
+  background-color: #00FF00;
+}
+
+.verbal-icon {
+  color: black;
+}
+
+.visual {
+  background-color: #FF69B4;
+}
+
+.visual-icon {
+  color: black;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: black;
+}
+
+@media screen and (max-width: 750px) {
+
+  body {
+     min-height: 100vh;
+     display: flex;
+     flex-direction: column;
+  }
+  .card-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 18px;
+      height: 70vh;
+  }
+
+  .card-container-left{
+      width: 80%;
+      height: 100vh;
+      margin-top: 80%;
+  }
+
+  .card-container-right {
+      width: 90%;
+  }
+
+  .card-container-left h3{
+      font-size: 20px;
+  }
+  
+  .circle-div {
+      width: 6.75rem;
+      height: 6.75rem;
+
+  }
+
+  .circle-div h1 {
+      font-size: 2.2rem;
+  }
+
+  .circle-div p {
+     font-size: 15px;
+  }
+
+  .card-container-left-text h2{
+      font-size: 1.5rem;
+      font-weight:none;
+  }
+
+  .card-text {
+      font-size: 15px;
+  }
+
+  .group {
+      margin-bottom: 20px;
+  }
+
+  .attribution {
+      position: relative;
+      top: 21rem;
+  }
+}
