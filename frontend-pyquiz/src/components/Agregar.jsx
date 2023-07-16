@@ -25,7 +25,7 @@ const Agregar = () =>{
                             <form>
                                 <h2>Agregar Pregunta</h2>
                                 <div class="input-box">
-                                    <input type="text" id="titulo" name="titulo" onChange={(e) => setTitulo(e.target.value)}/>
+                                    <input type="text" id="titulo" name="titulo" required onChange={(e) => setTitulo(e.target.value)}/>
                                     <label for="titulo">Titulo</label>
                                 </div>
                                 <div class="input-box">
@@ -45,7 +45,31 @@ const Agregar = () =>{
                                         <option value="Avanzado">Avanzado</option>
                                     </select>
                                 </div>
-                                <button onClick={() => agregarPregunta()}>Agregar</button>
+                                <button onClick={() => {
+                                    const titulo = document.getElementById("titulo").value;
+                                    const url = document.getElementById("url").value;
+                                    const respuesta = document.getElementById("respuesta").value;
+                                    const nivel = document.getElementById("nivel").value;
+                                    
+                                    const urlRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/;
+
+                                    let camposValidos = true; // Variable de bandera
+        
+                                    if (!urlRegex.test(url)) {
+                                        alert("Por favor, ingrese una URL válida de la imagen.");
+                                        camposValidos = false;
+                                    }
+                                    
+                                    else if (!titulo || !respuesta || !nivel) {
+                                        alert("Por favor, complete todos los campos antes de agregar la pregunta.");
+                                        camposValidos = false;
+                                    }
+                                    
+                                    else if (camposValidos) {
+                                        agregarPregunta();
+                                        alert("Pregunta registrada de manera exitosa");
+                                    }
+                                }}>Agregar</button>
                             </form>
                         </div>
                     </div>

@@ -79,3 +79,12 @@
 	color: #fff;
 	box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
 }
+
+.pruebaTitulo{
+	font-family: Impact, sans-serif;
+    font-size: 80px;
+    line-height: 100px;
+	text-align: center;
+}
+
+

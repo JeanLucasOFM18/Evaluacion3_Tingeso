@@ -2,6 +2,7 @@ import "../styles/Pruebas.css";
 
 const Pruebas = () =>{
     return <div className="hero">
+					<h1 className="pruebaTitulo">DIFICULTAD</h1>
                 <div class="wrapper">
 		<div class="card">
 			<img src="https://i.postimg.cc/d0NQxQ18/imagen-2023-07-12-184722867.png" alt=""/>
@@ -15,7 +16,7 @@ const Pruebas = () =>{
 			<img src="https://i.postimg.cc/wjS0cL5J/imagen-2023-07-12-184742466.png" alt=""/>
 			<div class="info">
 				<h1>Intermedio</h1>
-				<p>Demuestra que estas preparado para un desafio!</p>
+				<p>Demuestra que estás preparado para un desafio!</p>
 				<a href="/pruebaIntermedia" class="btn">Iniciar</a>
 			</div>
 		</div>

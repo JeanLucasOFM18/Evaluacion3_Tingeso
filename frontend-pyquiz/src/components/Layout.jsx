@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import navIcon1 from '../assets/img/nav-icon1.svg';
-import navIcon2 from '../assets/img/nav-icon4.svg';
+import navIcon2 from '../assets/img/nav-icon5.svg';
 import navIcon3 from '../assets/img/nav-icon3.svg';
 
 const Layout = () =>{
