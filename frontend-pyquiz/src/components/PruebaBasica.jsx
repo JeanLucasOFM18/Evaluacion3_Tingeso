@@ -4,14 +4,12 @@ import axios from "axios"
 
 const PruebaBasica = () =>{
 
-    const [preguntas, setPreguntas] = useState([]);
     const [imagenUrl, setImagenUrl] = useState([]);
     const [respuestas, setRespuestas] = useState([]);
     const [respuestasUsuario, setRespuestasUsuario] = useState([]);
     const [indicePregunta, setIndicePregunta] = useState(0);
     const [finalizado, setFinalizado] = useState(false);
     const [tiempo, setTiempo] = useState(0);
-    const [numeroPregunta, setNumeroPregunta] = useState(1);
 
     useEffect(() => {
         const obtenerPreguntas = async () => {
@@ -22,7 +20,6 @@ const PruebaBasica = () =>{
             // Verifica si la respuesta contiene preguntas y respuestas válidas
             if (data && Array.isArray(data)) {
               const preguntasAleatorias = obtenerPreguntasAleatorias(data, 4);
-              setPreguntas(preguntasAleatorias.map((item) => item.titulo));
               setRespuestas(preguntasAleatorias.map((item) => item.respuesta));
               setImagenUrl(preguntasAleatorias.map((item) => item.url));
             }
@@ -74,25 +71,43 @@ const PruebaBasica = () =>{
     };
 
     const handleSiguientePregunta = () => {
-        if (indicePregunta < 3) {
-          setIndicePregunta((prevIndicePregunta) => prevIndicePregunta + 1);
-          setNumeroPregunta((prevNumeroPregunta) => prevNumeroPregunta + 1);
-        } else {
-          setFinalizado(true);
-        }
+      if (indicePregunta < 3) {
+        setIndicePregunta((prevIndicePregunta) => prevIndicePregunta + 1);
+      } else {
+        setFinalizado(true);
+      }
     };
 
     const renderizarPreguntaActual = () => {
-        //const preguntaActual = preguntas[indicePregunta];
         const urlActual = imagenUrl[indicePregunta];
         const respuestaUsuarioActual = respuestasUsuario[indicePregunta];
     
         return (
           <div>
-            <div className="progress-bar">Pregunta {numeroPregunta}/4</div>
-            <h1 style={{ marginTop: '-100px', textAlign: 'center'}}>¿Qué retorna el código?</h1>
-            <img src={urlActual} alt="Imagen de la pregunta" style={{ maxWidth: '600px', maxHeight: '400px', width: '100%', height: 'auto', marginTop: '20px'}}/>
-            <h1 style={{ marginTop: '10px', textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)'}}>Ingrese su respuesta:</h1>
+            <section style={{ marginTop: '-120px', textAlign: 'center'}} class="step-wizard">
+                <ul class="step-wizard-list">
+                    <li className={`step-wizard-item ${indicePregunta === 0 ? 'current-item' : ''}`}>
+                        <span class="progress-count">1</span>
+                        <span class="progress-label">Pregunta 1</span>
+                    </li>
+                    <li className={`step-wizard-item ${indicePregunta === 1 ? 'current-item' : ''}`}>
+                        <span class="progress-count">2</span>
+                        <span class="progress-label">Pregunta 2</span>
+                    </li>
+                    <li className={`step-wizard-item ${indicePregunta === 2 ? 'current-item' : ''}`}>
+                        <span class="progress-count">3</span>
+                        <span class="progress-label">Pregunta 3</span>
+                    </li>
+                    <li className={`step-wizard-item ${indicePregunta === 3 ? 'current-item' : ''}`}>
+                        <span class="progress-count">4</span>
+                        <span class="progress-label">Pregunta 4</span>
+                    </li>
+                </ul>
+            </section>
+            
+            <h1 style={{ marginTop: '15px', textAlign: 'center'}}>¿Qué retorna el código?</h1>
+            <img src={urlActual} alt="Imagen de la pregunta" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto',maxWidth: '400px', maxHeight: '400px', width: '100%', height: 'auto', marginTop: '20px'}}/>
+            <h1 style={{ marginTop: '10px', textAlign: 'center'}}>Ingrese su respuesta:</h1>
             <input
               type="text"
               value={respuestaUsuarioActual || ''}
@@ -104,9 +119,19 @@ const PruebaBasica = () =>{
                 marginTop: '10px'
               }}
             />
-            <button onClick={handleSiguientePregunta}>
-              {finalizado ? 'Finalizar' : 'Siguiente'}
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              {/* Botón "Anterior" */}
+              {indicePregunta > 0 && (
+                <button onClick={() => setIndicePregunta(indicePregunta - 1)}>
+                  Anterior
+                </button>
+              )}
+
+              {/* Botón "Siguiente" */}
+              <button onClick={handleSiguientePregunta}>
+                {finalizado ? 'Finalizar' : 'Siguiente'}
+              </button>
+            </div>
           </div>
         );
     };
@@ -201,7 +226,7 @@ const PruebaBasica = () =>{
             </div>
           </div>
 
-          <a href="/pruebas"><button> Salir</button></a>
+          <a style={{ textDecoration: 'none'}} href="/pruebas"><button style={{ backgroundColor: '#FF0000'}}> Salir</button></a>
         </div>
       </div>
       )
