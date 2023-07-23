@@ -79,61 +79,74 @@ const PruebaAvanzada = () =>{
     };
 
     const renderizarPreguntaActual = () => {
-        const urlActual = imagenUrl[indicePregunta];
-        const respuestaUsuarioActual = respuestasUsuario[indicePregunta];
-    
-        return (
-          <div>
-            <section style={{ marginTop: '-120px', textAlign: 'center'}} class="step-wizard">
-                <ul class="step-wizard-list">
-                    <li className={`step-wizard-item ${indicePregunta === 0 ? 'current-item' : ''}`}>
-                        <span class="progress-count">1</span>
-                        <span class="progress-label">Pregunta 1</span>
-                    </li>
-                    <li className={`step-wizard-item ${indicePregunta === 1 ? 'current-item' : ''}`}>
-                        <span class="progress-count">2</span>
-                        <span class="progress-label">Pregunta 2</span>
-                    </li>
-                    <li className={`step-wizard-item ${indicePregunta === 2 ? 'current-item' : ''}`}>
-                        <span class="progress-count">3</span>
-                        <span class="progress-label">Pregunta 3</span>
-                    </li>
-                    <li className={`step-wizard-item ${indicePregunta === 3 ? 'current-item' : ''}`}>
-                        <span class="progress-count">4</span>
-                        <span class="progress-label">Pregunta 4</span>
-                    </li>
-                </ul>
-            </section>
-            
-            <h1 style={{ marginTop: '15px', textAlign: 'center'}}>¿Qué retorna el código?</h1>
-            <img src={urlActual} alt="Imagen de la pregunta" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto',maxWidth: '400px', maxHeight: '400px', width: '100%', height: 'auto', marginTop: '20px'}}/>
-            <h1 style={{ marginTop: '10px', textAlign: 'center'}}>Ingrese su respuesta:</h1>
-            <input
-              type="text"
-              value={respuestaUsuarioActual || ''}
-              onChange={handleRespuestaUsuario}
-              style={{
-                width: '100%',
-                padding: '5px',
-                textAlign: 'center',
-                marginTop: '10px'
-              }}
-            />
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              {/* Botón "Anterior" */}
-              {indicePregunta > 0 && (
-                <button onClick={() => setIndicePregunta(indicePregunta - 1)}>
-                  Anterior
-                </button>
-              )}
+      const urlActual = imagenUrl[indicePregunta];
+      const respuestaUsuarioActual = respuestasUsuario[indicePregunta];
 
-              {/* Botón "Siguiente" */}
-              <button onClick={handleSiguientePregunta}>
-                {finalizado ? 'Finalizar' : 'Siguiente'}
+      const handleFinalizar = () => {
+        if (window.confirm('¿Está seguro que desea terminar con la evaluación?')) {
+          setFinalizado(true);
+        }
+      };
+
+      return (
+        <div>
+          <section style={{ marginTop: '-120px', textAlign: 'center'}} class="step-wizard">
+              <ul class="step-wizard-list">
+                  <li className={`step-wizard-item ${indicePregunta === 0 ? 'current-item' : ''}`}>
+                      <span class="progress-count">1</span>
+                      <span class="progress-label">Pregunta 1</span>
+                  </li>
+                  <li className={`step-wizard-item ${indicePregunta === 1 ? 'current-item' : ''}`}>
+                      <span class="progress-count">2</span>
+                      <span class="progress-label">Pregunta 2</span>
+                  </li>
+                  <li className={`step-wizard-item ${indicePregunta === 2 ? 'current-item' : ''}`}>
+                      <span class="progress-count">3</span>
+                      <span class="progress-label">Pregunta 3</span>
+                  </li>
+                  <li className={`step-wizard-item ${indicePregunta === 3 ? 'current-item' : ''}`}>
+                      <span class="progress-count">4</span>
+                      <span class="progress-label">Pregunta 4</span>
+                  </li>
+              </ul>
+          </section>
+          
+          <h1 style={{ marginTop: '15px', textAlign: 'center'}}>¿Qué retorna el código?</h1>
+          <img src={urlActual} alt="Imagen de la pregunta" style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto',maxWidth: '400px', maxHeight: '400px', width: '100%', height: 'auto', marginTop: '20px'}}/>
+          <h1 style={{ marginTop: '10px', textAlign: 'center'}}>Ingrese su respuesta:</h1>
+          <input
+            type="text"
+            value={respuestaUsuarioActual || ''}
+            onChange={handleRespuestaUsuario}
+            style={{
+              width: '100%',
+              padding: '5px',
+              textAlign: 'center',
+              marginTop: '10px'
+            }}
+          />
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            {/* Botón "Anterior" */}
+            {indicePregunta > 0 && (
+              <button onClick={() => setIndicePregunta(indicePregunta - 1)}>
+                Anterior
               </button>
-            </div>
+            )}
+            {/* Botón "Finalizar" */}
+            {indicePregunta === 3 && !finalizado && (
+              <button onClick={handleFinalizar}>
+                Finalizar
+              </button>
+            )}
+            {/* Botón "Siguiente" */}
+            {indicePregunta !== 3 && (
+            <button onClick={handleSiguientePregunta}>
+              {finalizado ? 'Finalizar' : 'Siguiente'}
+            </button>
+            )}
           </div>
-        );
+        </div>
+      );
     };
 
     const renderizarResultado = () => {

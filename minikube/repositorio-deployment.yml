@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: repositorio-deployment
+  labels:
+    app: repositorio-deployment
+spec:
+  selector:
+    matchLabels:
+      app: repositorio-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: repositorio-deployment
+    spec:
+      containers:
+        - name: repositorio
+          image: jeanlucasofm/repositorio-service
+          ports:
+            - containerPort: 8082
+          env:
+            - name: SPRING_CLOUD_CONFIG_ENABLED
+              value: "true"
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: "http://config-service:8081"
+            - name: SPRING_DATASOURCE_URL
+              value: "jdbc:postgresql://postgres-service:5432/proveedor"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: "postgres"
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: "1234"
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://eureka-service:8761
+            - name: eureka.instance.preferIpAddress
+              value: "true"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: repositorio-service
+  labels:
+    app: repositorio-service
+spec:
+  selector:
+    app: repositorio-deployment
+  ports:
+    - protocol: TCP
+      port: 8082
+      targetPort: 8082
+  type: LoadBalancer

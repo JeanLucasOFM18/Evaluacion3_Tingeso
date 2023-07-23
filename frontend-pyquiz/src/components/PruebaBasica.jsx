@@ -81,7 +81,13 @@ const PruebaBasica = () =>{
     const renderizarPreguntaActual = () => {
         const urlActual = imagenUrl[indicePregunta];
         const respuestaUsuarioActual = respuestasUsuario[indicePregunta];
-    
+
+        const handleFinalizar = () => {
+          if (window.confirm('¿Está seguro que desea terminar con la evaluación?')) {
+            setFinalizado(true);
+          }
+        };
+
         return (
           <div>
             <section style={{ marginTop: '-120px', textAlign: 'center'}} class="step-wizard">
@@ -126,11 +132,18 @@ const PruebaBasica = () =>{
                   Anterior
                 </button>
               )}
-
+              {/* Botón "Finalizar" */}
+              {indicePregunta === 3 && !finalizado && (
+                <button onClick={handleFinalizar}>
+                  Finalizar
+                </button>
+              )}
               {/* Botón "Siguiente" */}
+              {indicePregunta !== 3 && (
               <button onClick={handleSiguientePregunta}>
                 {finalizado ? 'Finalizar' : 'Siguiente'}
               </button>
+              )}
             </div>
           </div>
         );
